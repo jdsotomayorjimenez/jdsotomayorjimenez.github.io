@@ -1,0 +1,328 @@
+
+/* Customización del portafolio académico de Juan Diego */
+:root {
+  --accent-color: #2563eb;
+  --heading-color: #111827;
+  --default-color: #374151;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+  --nav-color: #cbd5e1;
+  --nav-hover-color: #ffffff;
+  --nav-mobile-background-color: #111827;
+}
+
+body {
+  color: var(--default-color);
+}
+
+.header {
+  background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+}
+
+.header .profile-img img {
+  border: 7px solid rgba(255,255,255,.12);
+  background: #1e293b;
+}
+
+.header .profile-img img {
+  width: 120px;
+  height: 120px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50% !important;
+}
+
+.header .logo h1 {
+  font-size: 22px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.header .social-links a {
+  background: rgba(255,255,255,.08);
+}
+
+.header .social-links a:hover {
+  background: var(--accent-color);
+}
+
+.hero:before {
+  background: color-mix(in srgb, #0f172a, transparent 32%);
+}
+
+.hero h2 {
+  letter-spacing: -1px;
+}
+
+.hero p {
+  font-size: 24px;
+}
+
+.section-title p {
+  max-width: 920px;
+}
+
+.academic-badge,
+.meta-badge,
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1d4ed8;
+  background: #dbeafe;
+  border: 1px solid #bfdbfe;
+}
+
+.status-badge.pending {
+  color: #92400e;
+  background: #fef3c7;
+  border-color: #fde68a;
+}
+
+.portfolio-card,
+.feature-card {
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.07);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.portfolio-card:hover,
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: #bfdbfe;
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.16);
+}
+
+.card-media {
+  position: relative;
+  overflow: hidden;
+  background: #e0f2fe;
+}
+
+.card-media img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+}
+
+.portfolio-card:hover .card-media img,
+.feature-card:hover .card-media img {
+  transform: scale(1.04);
+}
+
+.card-category {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(255,255,255,.95);
+  color: #1d4ed8;
+  border-radius: 999px;
+  padding: 6px 11px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+.card-body-custom {
+  padding: 24px;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.card-body-custom h3 {
+  font-size: 21px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.card-body-custom p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #4b5563;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 20px;
+}
+
+.card-tags span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-portfolio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+  background: var(--accent-color);
+  border: 1px solid var(--accent-color);
+}
+
+.btn-portfolio:hover {
+  color: #ffffff;
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.btn-portfolio.secondary {
+  color: #1d4ed8;
+  background: #ffffff;
+  border-color: #bfdbfe;
+}
+
+.btn-portfolio.secondary:hover {
+  color: #ffffff;
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.btn-portfolio.disabled {
+  pointer-events: none;
+  color: #64748b;
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+.certification-card,
+.hackathon-card {
+  height: 100%;
+}
+
+.track-line {
+  margin: 10px 0 14px;
+  padding: 11px 13px;
+  border-left: 4px solid var(--accent-color);
+  background: #eff6ff;
+  color: #1e3a8a;
+  border-radius: 0 14px 14px 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.contact-card {
+  height: 100%;
+  padding: 26px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 12px 30px rgba(15,23,42,.06);
+}
+
+.contact-card i {
+  font-size: 28px;
+  color: var(--accent-color);
+}
+
+.contact-card h3 {
+  font-size: 19px;
+  margin: 14px 0 8px;
+}
+
+.contact-card p,
+.contact-card a {
+  color: #4b5563;
+}
+
+.isotope-filters li {
+  border-radius: 999px;
+  padding: 8px 16px !important;
+}
+
+.isotope-filters li.filter-active,
+.isotope-filters li:hover {
+  color: #ffffff !important;
+  background: var(--accent-color);
+}
+
+.footer {
+  background: #f8fafc;
+  border-top: 1px solid #e5e7eb;
+}
+
+@media (max-width: 768px) {
+  .hero h2 { font-size: 42px; }
+  .hero p { font-size: 19px; }
+  .card-body-custom { padding: 20px; }
+}
+
+/* Ajustes finales: imágenes 1200x800 y badge cuadrado de AWS */
+.card-media img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.certification-card .certification-badge-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  padding: 28px;
+  background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+}
+
+.certification-card .certification-badge-media img.aws-badge-img {
+  width: min(82%, 330px);
+  height: auto;
+  max-height: 330px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain !important;
+  padding: 18px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+  transform: none !important;
+}
+
+.certification-card:hover .certification-badge-media img.aws-badge-img {
+  transform: none !important;
+}
+
+@media (max-width: 767.98px) {
+  .certification-card .certification-badge-media {
+    min-height: 260px;
+    padding: 22px;
+  }
+
+  .certification-card .certification-badge-media img.aws-badge-img {
+    width: min(78%, 260px);
+    max-height: 260px;
+  }
+}
