@@ -1,0 +1,188 @@
+@page {
+  size: A4;
+  margin: 11mm 13mm;
+}
+
+:root {
+  --accent: #1f4e79;
+  --link: #205fa5;
+  --text: #1f2937;
+  --muted: #5f6b7a;
+  --line: #9bb4cb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: var(--text);
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.27;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+}
+
+.resume {
+  width: 100%;
+  max-width: 184mm;
+  margin: 0 auto;
+}
+
+.resume-header {
+  padding-bottom: 3.2mm;
+  text-align: center;
+  border-bottom: 1.4pt solid var(--accent);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 1mm;
+  color: #173b5d;
+  font-size: 23pt;
+  line-height: 1.06;
+  letter-spacing: -.35pt;
+}
+
+.headline {
+  margin-bottom: 1.8mm;
+  color: var(--muted);
+  font-size: 11.2pt;
+  font-weight: 700;
+}
+
+.contact-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6mm;
+  margin: 0;
+  font-size: 8.9pt;
+  font-style: normal;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+section {
+  margin-top: 3.3mm;
+}
+
+h2 {
+  margin-bottom: 1.8mm;
+  padding-bottom: .7mm;
+  color: var(--accent);
+  border-bottom: .75pt solid var(--line);
+  font-size: 11.4pt;
+  line-height: 1.1;
+  letter-spacing: .65pt;
+  text-transform: uppercase;
+}
+
+.entry,
+.project {
+  break-inside: avoid;
+}
+
+.project + .project {
+  margin-top: 1.7mm;
+}
+
+.entry-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4mm;
+}
+
+.entry-heading > :first-child {
+  min-width: 0;
+}
+
+h3 {
+  margin-bottom: .45mm;
+  font-size: 10.2pt;
+  line-height: 1.2;
+}
+
+.entry-subtitle {
+  margin-bottom: .7mm;
+  color: var(--muted);
+  font-size: 9.4pt;
+  font-style: italic;
+}
+
+.entry-date {
+  flex: 0 0 auto;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 8.9pt;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tech {
+  color: var(--muted);
+  font-size: 8.8pt;
+  font-weight: 400;
+}
+
+ul {
+  margin: .5mm 0 0;
+  padding-left: 4.6mm;
+}
+
+li {
+  padding-left: .7mm;
+}
+
+.compact-list p {
+  margin-bottom: .75mm;
+}
+
+.compact-list p:last-child {
+  margin-bottom: 0;
+}
+
+.skills-list {
+  font-size: 9.2pt;
+}
+
+@media screen {
+  body {
+    padding: 20px;
+    background: #dce3ea;
+  }
+
+  .resume {
+    min-height: 297mm;
+    padding: 11mm 13mm;
+    background: #fff;
+    box-shadow: 0 12px 40px rgba(22, 38, 55, .18);
+  }
+}
+
+@media print {
+  html,
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .resume {
+    max-width: none;
+  }
+}
