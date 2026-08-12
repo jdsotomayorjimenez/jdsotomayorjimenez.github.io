@@ -3,6 +3,7 @@
 ## Proyecto de la materia
 
 - [IceFrame — servicio de base de datos y reportes](https://github.com/jdsotomayorjimenez/proyecto-iceframe-db-reportes)
+- [TaskFlow — sistema distribuido de gestión de tareas](https://github.com/jdsotomayorjimenez/proyecto-sd-taskflow)
 
 ## Actividad y reconocimiento
 

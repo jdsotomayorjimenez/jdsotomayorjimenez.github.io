@@ -20,7 +20,7 @@ El sitio sigue una sola dirección visual oscura, con dos tonos de superficie al
 - Experiencia práctica con desarrollo, datos, Linux, infraestructura y hardware.
 - Proyectos organizados por materia.
 - Propuesta seleccionada como una de las ocho ganadoras de Ecuador Quantificado 2026.
-- Certificación AWS Academy — Data Engineering.
+- Certificaciones AWS Academy — Data Engineering y Cloud Architecting.
 - Participaciones en SpaceHACK for Sustainability 2025 y 2026.
 - Resumen de formación y experiencia práctica, con la sección de CV preparada para el PDF.
 
