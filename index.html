@@ -9,7 +9,22 @@
   <meta name="keywords" content="Juan Diego Sotomayor, portafolio, ingeniería en ciencias de la computación, desarrollo de software, Linux, Docker, sistemas distribuidos, bases de datos, análisis de datos, hardware">
   <meta name="author" content="Juan Diego Sotomayor Jiménez">
   <meta name="theme-color" content="#061224">
+  <meta name="color-scheme" content="dark light">
   <link rel="canonical" href="https://jdsotomayorjimenez.github.io/">
+
+  <script>
+    // Resuelve el tema antes de pintar: sin esto el sitio parpadea en claro al cargar.
+    (function () {
+      var theme = 'dark';
+      try {
+        var stored = localStorage.getItem('theme');
+        theme = stored === 'light' || stored === 'dark'
+          ? stored
+          : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      } catch (e) { /* almacenamiento bloqueado: se queda en oscuro */ }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 
   <meta property="og:type" content="profile">
   <meta property="og:locale" content="es_EC">
@@ -52,6 +67,10 @@
 
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
+  <button class="theme-toggle" type="button" aria-label="Activar tema claro" aria-pressed="false">
+    <i class="bi bi-sun" aria-hidden="true"></i>
+    <i class="bi bi-moon-stars" aria-hidden="true"></i>
+  </button>
   <button class="header-toggle d-xl-none bi bi-list" type="button" aria-label="Abrir menú" aria-controls="header" aria-expanded="false"></button>
   <div class="nav-backdrop" hidden></div>
 
@@ -98,15 +117,11 @@
   <main class="main" id="contenido">
 
     <section id="hero" class="hero section">
-      <img src="assets/img/hero-bg.jpg" alt="" aria-hidden="true" width="1672" height="941" fetchpriority="high" decoding="async">
-      <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
-      <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
-
       <div class="container hero-content" data-aos="fade-up">
         <span class="hero-kicker">Ingeniería en Ciencias de la Computación</span>
         <h1>Juan Diego<br>Sotomayor Jiménez</h1>
-        <p class="hero-role">Me enfoco en <span class="typed" data-typed-items="desarrollo de software, soluciones de datos, sistemas distribuidos, automatización"></span></p>
-        <p class="hero-lead">Estudiante de computación. Construyo aplicaciones, analizo datos y me interesa la infraestructura que los sostiene.</p>
+        <p class="hero-role">Construyo software, modelo datos y levanto la infraestructura que los sostiene.</p>
+        <p class="hero-lead"><span data-project-count="palabra">Diez</span> proyectos documentados: de un data warehouse de telecomunicaciones a dos clústeres de Kubernetes hablando por una red privada.</p>
         <div class="hero-actions">
           <a class="btn-solid" href="#proyectos"><i class="bi bi-grid" aria-hidden="true"></i>Ver proyectos</a>
           <a class="btn-ghost" href="assets/docs/cv/juan-diego-sotomayor-jimenez-cv.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-person" aria-hidden="true"></i>Ver CV</a>
@@ -160,13 +175,13 @@
         <div class="row gy-3 gx-3">
           <div class="col-lg-3 col-6">
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-count="proyectos" data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Proyectos</strong> <span>documentados en GitHub</span></p>
             </div>
           </div>
           <div class="col-lg-3 col-6">
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-count="materias" data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Materias</strong> <span>representadas</span></p>
             </div>
           </div>
@@ -253,10 +268,13 @@
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-            <div class="col-lg-6 col-xl-4 isotope-item filter-reconocimiento filter-sd">
+            <div class="col-lg-6 col-xl-4 isotope-item filter-reconocimiento filter-sd" data-materia="sd">
               <article class="portfolio-card recognition-card">
                 <div class="card-media is-figure">
-                  <img src="assets/img/projects/elquantificador-informalidad.png" alt="Gráfico de la informalidad laboral por provincia en Ecuador" width="2800" height="1639" loading="lazy" decoding="async">
+                  <picture>
+                    <source srcset="assets/img/projects/elquantificador-informalidad.webp" type="image/webp">
+                    <img src="assets/img/projects/elquantificador-informalidad.png" alt="Gráfico de la informalidad laboral por provincia en Ecuador" width="2800" height="1639" loading="lazy" decoding="async">
+                  </picture>
                   <span class="card-category"><i class="bi bi-trophy-fill" aria-hidden="true"></i>Ganador seleccionado</span>
                 </div>
                 <div class="card-body-custom">
@@ -273,27 +291,32 @@
               </article>
             </div>
 
-            <div class="col-lg-6 col-xl-4 isotope-item filter-aalg">
+            <div class="col-lg-6 col-xl-4 isotope-item filter-aalg" data-materia="aalg">
               <article class="portfolio-card">
                 <div class="card-media is-figure">
-                  <img src="assets/img/projects/aalg-propagacion-malware.png" alt="Grafo dirigido de la propagación de malware entre un servidor Linux y un cliente Windows" width="1800" height="1108" loading="lazy" decoding="async">
+                  <picture>
+                    <source srcset="assets/img/projects/aalg-propagacion-malware.webp" type="image/webp">
+                    <img src="assets/img/projects/aalg-propagacion-malware.png" alt="Grafo dirigido de la propagación de malware entre un servidor Linux y un cliente Windows" width="1800" height="1108" loading="lazy" decoding="async">
+                  </picture>
                   <span class="card-category">Análisis de Algoritmos</span>
                 </div>
                 <div class="card-body-custom">
                   <div class="card-meta"><span>Ordinario I · 2026</span><span>Segundo parcial</span></div>
                   <h3>Propagación de malware en grafos</h3>
-                  <p>Comparación de Dijkstra y Bellman-Ford adaptados para maximizar el producto de probabilidades sobre un grafo dirigido de 50 nodos y 86 aristas que modela la propagación entre un servidor Linux y un cliente Windows unidos por un puente SSH.</p>
-                  <p>Mide tiempo, pico de memoria y estabilidad en 800 registros consolidados, y anima las rutas obtenidas desde una interfaz por terminal o una GUI en Tkinter.</p>
+                  <p>Dijkstra y Bellman-Ford adaptados para maximizar el producto de probabilidades sobre un grafo dirigido de 50 nodos que modela la propagación entre un servidor Linux y un cliente Windows unidos por un puente SSH. Mide tiempo y memoria en 800 registros y anima las rutas desde una GUI en Tkinter.</p>
                   <div class="card-tags"><span>Python</span><span>NetworkX</span><span>Matplotlib</span><span>Tkinter</span><span>Grafos</span></div>
                   <div class="card-actions"><a class="btn-portfolio" href="https://github.com/ueesaalg/aalg_act2_2p_ord1_26_grupo3" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i>Repositorio</a></div>
                 </div>
               </article>
             </div>
 
-            <div class="col-lg-6 col-xl-4 isotope-item filter-sd">
+            <div class="col-lg-6 col-xl-4 isotope-item filter-sd" data-materia="sd">
               <article class="portfolio-card">
                 <div class="card-media">
-                  <img src="assets/img/projects/iceframe.png" alt="Panel de reportes del sistema IceFrame" width="1200" height="800" loading="lazy" decoding="async">
+                  <picture>
+                    <source srcset="assets/img/projects/iceframe.webp" type="image/webp">
+                    <img src="assets/img/projects/iceframe.png" alt="Panel de reportes del sistema IceFrame" width="1200" height="800" loading="lazy" decoding="async">
+                  </picture>
                   <span class="card-category">Sistemas Distribuidos</span>
                 </div>
                 <div class="card-body-custom">
@@ -306,10 +329,13 @@
               </article>
             </div>
 
-            <div class="col-lg-6 col-xl-4 isotope-item filter-sd">
+            <div class="col-lg-6 col-xl-4 isotope-item filter-sd" data-materia="sd">
               <article class="portfolio-card">
                 <div class="card-media">
-                  <img src="assets/img/projects/taskflow.png" alt="Panel de resumen del gestor de tareas TaskFlow" width="1532" height="691" loading="lazy" decoding="async">
+                  <picture>
+                    <source srcset="assets/img/projects/taskflow.webp" type="image/webp">
+                    <img src="assets/img/projects/taskflow.png" alt="Panel de resumen del gestor de tareas TaskFlow" width="1532" height="691" loading="lazy" decoding="async">
+                  </picture>
                   <span class="card-category">Sistemas Distribuidos</span>
                 </div>
                 <div class="card-body-custom">
@@ -322,10 +348,13 @@
               </article>
             </div>
 
-            <div class="col-lg-6 col-xl-4 isotope-item filter-ldp">
+            <div class="col-lg-6 col-xl-4 isotope-item filter-ldp" data-materia="ldp">
               <article class="portfolio-card">
                 <div class="card-media">
-                  <img src="assets/img/projects/huellitas.png" alt="Página principal de la plataforma de adopciones Huellitas" width="1200" height="800" loading="lazy" decoding="async">
+                  <picture>
+                    <source srcset="assets/img/projects/huellitas.webp" type="image/webp">
+                    <img src="assets/img/projects/huellitas.png" alt="Página principal de la plataforma de adopciones Huellitas" width="1200" height="800" loading="lazy" decoding="async">
+                  </picture>
                   <span class="card-category">Lenguajes de Programación</span>
                 </div>
                 <div class="card-body-custom">
@@ -338,10 +367,13 @@
               </article>
             </div>
 
-            <div class="col-lg-6 col-xl-4 isotope-item filter-ldp">
+            <div class="col-lg-6 col-xl-4 isotope-item filter-ldp" data-materia="ldp">
               <article class="portfolio-card">
                 <div class="card-media">
-                  <img src="assets/img/projects/ttow.png" alt="Escena de combate del juego The Tale of Wong" width="1915" height="1076" loading="lazy" decoding="async">
+                  <picture>
+                    <source srcset="assets/img/projects/ttow.webp" type="image/webp">
+                    <img src="assets/img/projects/ttow.png" alt="Escena de combate del juego The Tale of Wong" width="1915" height="1076" loading="lazy" decoding="async">
+                  </picture>
                   <span class="card-category">Lenguajes de Programación</span>
                 </div>
                 <div class="card-body-custom">
@@ -354,10 +386,13 @@
               </article>
             </div>
 
-            <div class="col-lg-6 col-xl-4 isotope-item filter-bd">
+            <div class="col-lg-6 col-xl-4 isotope-item filter-bd" data-materia="bd2">
               <article class="portfolio-card">
                 <div class="card-media">
-                  <img src="assets/img/projects/bd2-enreach.png" alt="Dashboard analítico del Data Warehouse Enreach" width="1200" height="800" loading="lazy" decoding="async">
+                  <picture>
+                    <source srcset="assets/img/projects/bd2-enreach.webp" type="image/webp">
+                    <img src="assets/img/projects/bd2-enreach.png" alt="Dashboard analítico del Data Warehouse Enreach" width="1200" height="800" loading="lazy" decoding="async">
+                  </picture>
                   <span class="card-category">Base de Datos 2</span>
                 </div>
                 <div class="card-body-custom">
@@ -370,10 +405,13 @@
               </article>
             </div>
 
-            <div class="col-lg-6 col-xl-4 isotope-item filter-edd">
+            <div class="col-lg-6 col-xl-4 isotope-item filter-edd" data-materia="edd">
               <article class="portfolio-card">
                 <div class="card-media">
-                  <img src="assets/img/projects/edd-blackboard.png" alt="Generador de reportes del sistema académico Blackboard" width="2106" height="1578" loading="lazy" decoding="async">
+                  <picture>
+                    <source srcset="assets/img/projects/edd-blackboard.webp" type="image/webp">
+                    <img src="assets/img/projects/edd-blackboard.png" alt="Generador de reportes del sistema académico Blackboard" width="2106" height="1578" loading="lazy" decoding="async">
+                  </picture>
                   <span class="card-category">Estructura de Datos</span>
                 </div>
                 <div class="card-body-custom">
@@ -386,10 +424,13 @@
               </article>
             </div>
 
-            <div class="col-lg-6 col-xl-4 isotope-item filter-edd">
+            <div class="col-lg-6 col-xl-4 isotope-item filter-edd" data-materia="edd">
               <article class="portfolio-card">
                 <div class="card-media">
-                  <img src="assets/img/projects/edd-agenda.png" alt="Pantalla de búsqueda de contactos de la agenda" width="1261" height="902" loading="lazy" decoding="async">
+                  <picture>
+                    <source srcset="assets/img/projects/edd-agenda.webp" type="image/webp">
+                    <img src="assets/img/projects/edd-agenda.png" alt="Pantalla de búsqueda de contactos de la agenda" width="1261" height="902" loading="lazy" decoding="async">
+                  </picture>
                   <span class="card-category">Estructura de Datos</span>
                 </div>
                 <div class="card-body-custom">
@@ -402,10 +443,13 @@
               </article>
             </div>
 
-            <div class="col-lg-6 col-xl-4 isotope-item filter-bd">
+            <div class="col-lg-6 col-xl-4 isotope-item filter-bd" data-materia="bd1">
               <article class="portfolio-card">
                 <div class="card-media">
-                  <img src="assets/img/projects/bd1-atrium.png" alt="Pantalla principal del sistema de gestión Atrium" width="2115" height="1588" loading="lazy" decoding="async">
+                  <picture>
+                    <source srcset="assets/img/projects/bd1-atrium.webp" type="image/webp">
+                    <img src="assets/img/projects/bd1-atrium.png" alt="Pantalla principal del sistema de gestión Atrium" width="2115" height="1588" loading="lazy" decoding="async">
+                  </picture>
                   <span class="card-category">Base de Datos 1</span>
                 </div>
                 <div class="card-body-custom">
@@ -434,7 +478,10 @@
         <article class="feature-card certification-card">
           <div class="row g-0 align-items-stretch">
             <div class="col-md-5 card-media certification-badge-media">
-              <img src="assets/img/certifications/aws-data-engineering.png" alt="Insignia de AWS Academy Data Engineering" class="aws-badge-img" width="601" height="601" loading="lazy" decoding="async">
+              <picture>
+                <source srcset="assets/img/certifications/aws-data-engineering.webp" type="image/webp">
+                <img src="assets/img/certifications/aws-data-engineering.png" alt="Insignia de AWS Academy Data Engineering" class="aws-badge-img" width="601" height="601" loading="lazy" decoding="async">
+              </picture>
             </div>
             <div class="col-md-7 card-body-custom">
               <div class="card-meta"><span>AWS Academy</span><span>24 de marzo de 2026</span></div>
@@ -452,7 +499,10 @@
         <article class="feature-card certification-card">
           <div class="row g-0 align-items-stretch">
             <div class="col-md-5 card-media certification-badge-media">
-              <img src="assets/img/certifications/aws-cloud-architecting.png" alt="Insignia de AWS Academy Cloud Architecting" class="aws-badge-img" width="601" height="601" loading="lazy" decoding="async">
+              <picture>
+                <source srcset="assets/img/certifications/aws-cloud-architecting.webp" type="image/webp">
+                <img src="assets/img/certifications/aws-cloud-architecting.png" alt="Insignia de AWS Academy Cloud Architecting" class="aws-badge-img" width="601" height="601" loading="lazy" decoding="async">
+              </picture>
             </div>
             <div class="col-md-7 card-body-custom">
               <div class="card-meta"><span>AWS Academy</span><span>1 de agosto de 2026</span></div>
@@ -481,7 +531,10 @@
           <div class="col-lg-6">
             <article class="feature-card hackathon-card">
               <div class="card-media">
-                <img src="assets/img/hackathons/spacehack-2025.png" alt="Mapa NDVI del proyecto de SpaceHACK 2025" width="1200" height="799" loading="lazy" decoding="async">
+                <picture>
+                  <source srcset="assets/img/hackathons/spacehack-2025.webp" type="image/webp">
+                  <img src="assets/img/hackathons/spacehack-2025.png" alt="Mapa NDVI del proyecto de SpaceHACK 2025" width="1200" height="799" loading="lazy" decoding="async">
+                </picture>
                 <span class="card-category">2025</span>
               </div>
               <div class="card-body-custom">
@@ -500,7 +553,10 @@
           <div class="col-lg-6">
             <article class="feature-card hackathon-card">
               <div class="card-media">
-                <img src="assets/img/hackathons/spacehack-2026.png" alt="Interfaz del proyecto PeakNews de SpaceHACK 2026" width="1200" height="800" loading="lazy" decoding="async">
+                <picture>
+                  <source srcset="assets/img/hackathons/spacehack-2026.webp" type="image/webp">
+                  <img src="assets/img/hackathons/spacehack-2026.png" alt="Interfaz del proyecto PeakNews de SpaceHACK 2026" width="1200" height="800" loading="lazy" decoding="async">
+                </picture>
                 <span class="card-category">2026</span>
               </div>
               <div class="card-body-custom">
@@ -543,7 +599,7 @@
               <h3><i class="bi bi-tools" aria-hidden="true"></i>Experiencia práctica</h3>
               <ul>
                 <li><strong>Mantenimiento de equipos y preparación de computadoras para la arquitectura de un clúster universitario</strong></li>
-                <li><strong>Nueve proyectos académicos documentados</strong><span>Java, Unity, Laravel, React, PostgreSQL, Kubernetes, Docker</span></li>
+                <li><strong><span data-project-count="palabra">Diez</span> proyectos académicos documentados</strong><span>Java, Unity, Laravel, React, PostgreSQL, Kubernetes, Docker</span></li>
                 <li><strong>Ecuador Quantificado 2026</strong><span>Una de las ocho propuestas ganadoras</span></li>
                 <li><strong>SpaceHACK for Sustainability</strong><span>Ediciones 2025 y 2026</span></li>
               </ul>
@@ -557,6 +613,9 @@
               </a>
               <a class="btn-ghost" href="assets/docs/cv/juan-diego-sotomayor-jimenez-cv.pdf" download="juan-diego-sotomayor-jimenez-cv.pdf">
                 <i class="bi bi-download" aria-hidden="true"></i>Descargar PDF
+              </a>
+              <a class="btn-ghost" href="assets/docs/cv/juan-diego-sotomayor-jimenez-cv-visual.pdf" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-layout-text-sidebar-reverse" aria-hidden="true"></i>Versión visual
               </a>
             </div>
           </div>
@@ -608,7 +667,6 @@
   <div id="preloader"></div>
 
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>

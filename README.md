@@ -12,11 +12,12 @@ El sitio presenta mi perfil como estudiante de Ingeniería en Ciencias de la Com
 
 La navegación usa una barra lateral retráctil en escritorio (se expande con `hover` y `focus-within`) y un panel lateral con botón, fondo oscurecido y cierre con `Escape` en pantallas menores a 1200 px.
 
-El sitio sigue una sola dirección visual oscura, con dos tonos de superficie alternos por sección y azul y turquesa como acentos.
+El sitio tiene tema oscuro y claro, con dos tonos de superficie alternos por sección y azul y turquesa como acentos. La portada no usa imagen: el ambiente sale de degradados, una retícula fina y una capa de grano definidas en CSS.
 
 ## Contenido
 
 - Presentación personal y áreas de interés.
+- Tema claro y oscuro con selector propio.
 - Experiencia práctica con desarrollo, datos, Linux, infraestructura y hardware.
 - Proyectos organizados por materia.
 - Propuesta seleccionada como una de las ocho ganadoras de Ecuador Quantificado 2026.
@@ -35,13 +36,12 @@ Es un sitio estático de una sola página, sin proceso de compilación:
 ├── assets/
 │   ├── css/
 │   │   ├── main.css                   # Estilos base del template iPortfolio
-│   │   └── custom.css                 # Identidad visual y componentes propios
+│   │   └── custom.css                 # Tokens, temas y componentes propios
 │   ├── js/
-│   │   └── main.js                    # Menú, animaciones, filtros y scrollspy
+│   │   └── main.js                    # Tema, menú, contadores, filtros y scrollspy
 │   ├── img/
 │   │   ├── brand/                     # Monograma JD (SVG + PNG + favicon)
-│   │   ├── hero-bg.jpg                # Fondo de portada
-│   │   ├── projects/
+│   │   ├── projects/                  # WebP + PNG de respaldo
 │   │   ├── certifications/
 │   │   └── hackathons/
 │   ├── docs/
@@ -55,14 +55,42 @@ Es un sitio estático de una sola página, sin proceso de compilación:
 ## Tecnologías del sitio
 
 - HTML5 semántico.
-- CSS personalizado.
+- CSS personalizado con tokens de color por tema.
 - JavaScript sin framework.
 - Bootstrap 5 (solo CSS) y Bootstrap Icons.
-- AOS, Typed.js, PureCounter e Isotope.
+- AOS, PureCounter e Isotope.
 - Tipografías Inter, Plus Jakarta Sans y JetBrains Mono.
 - GitHub Pages.
 
-Las librerías del template que no se usan (Swiper, GLightbox, Waypoints, el JS de Bootstrap y el validador de formularios) permanecen en `assets/vendor/` pero ya no se cargan en `index.html`.
+`assets/vendor/` contiene únicamente las librerías que `index.html` carga. Las del
+template que no se usaban (Swiper, GLightbox, Waypoints, Typed.js y el validador de
+formularios) se eliminaron del repositorio.
+
+## Tema claro y oscuro
+
+Toda la paleta vive como tokens en `:root` dentro de `assets/css/custom.css`; el tema
+claro redefine esos mismos nombres en `:root[data-theme="light"]`, así que ningún
+componente necesita reglas duplicadas por tema.
+
+- El botón de cambio está fijo en la esquina superior derecha.
+- La elección se guarda en `localStorage`.
+- Sin elección guardada, el sitio sigue `prefers-color-scheme` y reacciona si esa
+  preferencia cambia durante la sesión.
+- Un script en línea dentro del `<head>` resuelve el tema antes de pintar: sin él la
+  página parpadearía en claro al cargar.
+
+## Contadores y foto de perfil
+
+Los números de la franja de datos y el conteo de proyectos del bloque de currículum se
+calculan en `assets/js/main.js` a partir de las tarjetas de proyecto: cada tarjeta
+declara su materia con `data-materia`, y de ahí salen el total de proyectos y el número
+de materias representadas. Al publicar un proyecto nuevo no hay ningún número que
+actualizar a mano.
+
+La foto de la barra lateral apunta a `https://github.com/jdsotomayorjimenez.png?size=88`,
+que redirige siempre al avatar vigente de la cuenta de GitHub: cambiar la foto en GitHub
+la cambia en el sitio sin tocar el repositorio. Si GitHub no responde, el `onerror` del
+`<img>` cae al monograma local.
 
 ## Recursos principales
 
@@ -73,16 +101,23 @@ assets/img/brand/jd-monogram.svg
 assets/img/brand/jd-monogram-512.png
 assets/img/brand/jd-favicon-32.png
 assets/img/brand/jd-apple-touch-icon-180.png
-assets/img/hero-bg.jpg
 assets/img/projects/
 assets/img/certifications/
 assets/img/hackathons/
+```
+
+Las capturas se sirven en WebP con el PNG original como respaldo, mediante `<picture>`.
+Al añadir una imagen nueva conviene generar ambas:
+
+```bash
+magick assets/img/projects/nueva.png -quality 82 -define webp:method=6 assets/img/projects/nueva.webp
 ```
 
 ### Documentos
 
 ```text
 assets/docs/certifications/aws-data-engineering.pdf
+assets/docs/certifications/aws-cloud-architecting.pdf
 assets/docs/hackathons/spacehack-2025-certificate.pdf
 assets/docs/hackathons/spacehack-2025-presentation.pdf
 assets/docs/hackathons/spacehack-2026-certificate.pdf
@@ -91,12 +126,20 @@ assets/docs/hackathons/spacehack-2026-presentation.pdf
 
 ## Currículum
 
-La sección `#cv` muestra un resumen de formación y experiencia dentro del sitio y ofrece dos acciones:
+La sección `#cv` muestra un resumen de formación y experiencia dentro del sitio y ofrece tres acciones:
 
-- **Ver CV:** abre el PDF en una pestaña nueva.
-- **Descargar PDF:** descarga `assets/docs/cv/juan-diego-sotomayor-jimenez-cv.pdf`.
+- **Ver CV:** abre en una pestaña nueva la versión pensada para postular.
+- **Descargar PDF:** descarga esa misma versión.
+- **Versión visual:** abre la variante a dos columnas, para compartir con personas.
 
-La fuente HTML/CSS, las decisiones de contenido y las instrucciones para regenerar y validar el documento están en [`assets/docs/cv/README.md`](assets/docs/cv/README.md).
+Hay dos documentos porque hacen dos trabajos distintos: la versión de una columna es la
+que leen bien los sistemas ATS de los portales de empleo, y la de dos columnas es la que
+se ve mejor. Ambas salen de la misma información.
+
+Los datos que aún faltan (teléfono, fecha de nacimiento, ciudad, LinkedIn) se completan
+en el formulario [`assets/docs/cv/src/datos.md`](assets/docs/cv/src/datos.md). Las
+fuentes HTML/CSS, las decisiones de contenido y las instrucciones para regenerar y
+validar los PDF están en [`assets/docs/cv/README.md`](assets/docs/cv/README.md).
 
 ## Probar localmente
 

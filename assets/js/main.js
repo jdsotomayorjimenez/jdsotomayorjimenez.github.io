@@ -84,6 +84,64 @@
   });
   syncDrawerReachability();
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /**
+   * Tema claro y oscuro
+   * El tema ya viene resuelto por el script en línea del <head>; aquí solo se
+   * gestiona el cambio, la persistencia y lo que el CSS no puede tocar.
+   */
+  const themeToggle = document.querySelector('.theme-toggle');
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const THEME_COLORS = { dark: '#061224', light: '#f7f9fc' };
+
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  }
+
+  function syncThemeControls() {
+    const isLight = currentTheme() === 'light';
+    if (themeMeta) themeMeta.setAttribute('content', THEME_COLORS[isLight ? 'light' : 'dark']);
+    if (!themeToggle) return;
+    themeToggle.setAttribute('aria-label', isLight ? 'Activar tema oscuro' : 'Activar tema claro');
+    themeToggle.setAttribute('aria-pressed', String(isLight));
+  }
+
+  function setTheme(theme) {
+    const root = document.documentElement;
+
+    // La transición solo vive durante el cambio, no en cada hover del sitio
+    if (!prefersReducedMotion) {
+      root.classList.add('theme-switching');
+      window.setTimeout(() => root.classList.remove('theme-switching'), 320);
+    }
+
+    root.setAttribute('data-theme', theme);
+    try {
+      localStorage.setItem('theme', theme);
+    } catch (e) { /* almacenamiento bloqueado: el tema dura lo que la sesión */ }
+    syncThemeControls();
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      setTheme(currentTheme() === 'light' ? 'dark' : 'light');
+    });
+  }
+
+  // Si nunca se eligió tema a mano, el sitio sigue la preferencia del sistema
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (event) => {
+    let stored = null;
+    try {
+      stored = localStorage.getItem('theme');
+    } catch (e) { /* sin almacenamiento no hay elección guardada que respetar */ }
+    if (stored === 'light' || stored === 'dark') return;
+    document.documentElement.setAttribute('data-theme', event.matches ? 'light' : 'dark');
+    syncThemeControls();
+  });
+
+  syncThemeControls();
+
   /**
    * Preloader
    */
@@ -119,8 +177,6 @@
   /**
    * Animaciones al hacer scroll
    */
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   function aosInit() {
     if (typeof AOS === 'undefined') return;
     AOS.init({
@@ -134,28 +190,38 @@
   window.addEventListener('load', aosInit);
 
   /**
-   * Typed.js en la portada
+   * Contadores de la franja de datos
+   * Se calculan desde las tarjetas de proyecto para que nadie tenga que
+   * acordarse de subir un número a mano al publicar un proyecto nuevo.
    */
-  const selectTyped = document.querySelector('.typed');
-  if (selectTyped && typeof Typed !== 'undefined') {
-    const typedStrings = selectTyped.getAttribute('data-typed-items').split(',').map(item => item.trim());
+  const projectCards = document.querySelectorAll('.isotope-item[data-materia]');
+  const projectCount = projectCards.length;
+  const materiaCount = new Set(
+    Array.from(projectCards, card => card.getAttribute('data-materia'))
+  ).size;
 
-    if (prefersReducedMotion) {
-      selectTyped.textContent = typedStrings[0];
-    } else {
-      new Typed('.typed', {
-        strings: typedStrings,
-        loop: true,
-        typeSpeed: 90,
-        backSpeed: 45,
-        backDelay: 2200
-      });
-    }
+  const NUMEROS = ['cero', 'un', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho',
+    'nueve', 'diez', 'once', 'doce', 'trece', 'catorce', 'quince', 'dieciséis', 'diecisiete',
+    'dieciocho', 'diecinueve', 'veinte'];
+
+  function enPalabras(n) {
+    return NUMEROS[n] ? NUMEROS[n].charAt(0).toUpperCase() + NUMEROS[n].slice(1) : String(n);
   }
 
-  /**
-   * Contadores de la franja de datos
-   */
+  if (projectCount) {
+    document.querySelectorAll('[data-count="proyectos"]').forEach(el => {
+      el.setAttribute('data-purecounter-end', String(projectCount));
+    });
+    document.querySelectorAll('[data-count="materias"]').forEach(el => {
+      el.setAttribute('data-purecounter-end', String(materiaCount));
+    });
+    document.querySelectorAll('[data-project-count]').forEach(el => {
+      el.textContent = el.getAttribute('data-project-count') === 'palabra'
+        ? enPalabras(projectCount)
+        : String(projectCount);
+    });
+  }
+
   if (typeof PureCounter !== 'undefined') {
     new PureCounter();
   }

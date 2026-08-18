@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Currículum visual de Juan Diego Sotomayor Jiménez, estudiante de Ingeniería en Ciencias de la Computación.">
+  <title>CV visual | Juan Diego Sotomayor Jiménez</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="visual.css">
+</head>
+
+<body>
+  <main class="resume">
+
+    <header class="masthead">
+      <!-- PENDIENTE (datos.md §1): foto. Colocar el archivo en esta misma carpeta
+           como foto.jpg y descomentar. Sin foto el encabezado también funciona.
+      <img class="portrait" src="foto.jpg" alt="Retrato de Juan Diego Sotomayor Jiménez">
+      -->
+      <div class="masthead-copy">
+        <h1>Juan Diego<br>Sotomayor Jiménez</h1>
+        <p class="headline">Estudiante de Ingeniería en Ciencias de la Computación</p>
+      </div>
+      <ul class="masthead-contact">
+        <li><span class="label">Correo</span><a href="mailto:jdsotomayorjimenez@icloud.com">jdsotomayorjimenez@icloud.com</a></li>
+        <!-- PENDIENTE (datos.md §2): teléfono
+        <li><span class="label">Teléfono</span><a href="tel:+593999999999">+593 99 999 9999</a></li>
+        -->
+        <li><span class="label">GitHub</span><a href="https://github.com/jdsotomayorjimenez">github.com/jdsotomayorjimenez</a></li>
+        <li><span class="label">Portafolio</span><a href="https://jdsotomayorjimenez.github.io/">jdsotomayorjimenez.github.io</a></li>
+        <!-- PENDIENTE (datos.md §2): LinkedIn, solo si el perfil está al día
+        <li><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/usuario">linkedin.com/in/usuario</a></li>
+        -->
+      </ul>
+    </header>
+
+    <div class="columns">
+
+      <div class="main-column">
+
+        <section aria-labelledby="perfil">
+          <h2 id="perfil">Perfil</h2>
+          <p class="lead">Estudiante de Ingeniería en Ciencias de la Computación con proyectos
+            documentados en desarrollo web, bases de datos, sistemas distribuidos y análisis de
+            algoritmos. Busco una pasantía donde llevar a producción lo que hasta ahora he
+            construido en el ámbito académico.</p>
+        </section>
+
+        <section aria-labelledby="educacion">
+          <h2 id="educacion">Educación</h2>
+          <article class="entry">
+            <div class="entry-head">
+              <h3>Universidad de Especialidades Espíritu Santo</h3>
+              <span class="date">2024 – abr 2028</span>
+            </div>
+            <p class="entry-sub">Ingeniería en Ciencias de la Computación</p>
+            <ul>
+              <li>GPA 94.95/100.</li>
+              <li>Finalización académica prevista para diciembre de 2027 y titulación para abril de 2028.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section aria-labelledby="experiencia">
+          <h2 id="experiencia">Experiencia</h2>
+          <article class="entry">
+            <div class="entry-head">
+              <h3>Apoyo técnico en infraestructura</h3>
+              <!-- PENDIENTE (datos.md §5): sustituir por las fechas reales -->
+              <span class="date">UEES</span>
+            </div>
+            <p class="entry-sub">Mantenimiento de equipos y preparación de computadoras</p>
+            <ul>
+              <li>Participé en el mantenimiento y acondicionamiento de equipos destinados a la arquitectura de un clúster universitario.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section aria-labelledby="proyectos">
+          <h2 id="proyectos">Proyectos destacados</h2>
+
+          <article class="entry project">
+            <div class="entry-head">
+              <h3><a href="https://github.com/jdsotomayorjimenez/elquantificador_informalidad_ecu">Informalidad laboral en Ecuador</a></h3>
+              <span class="date">2026</span>
+            </div>
+            <p>Automaticé la extracción, validación y visualización de datos de la ENEMDU 2025 para
+              analizar la informalidad y el empleo no remunerado por provincia. Una de las ocho
+              propuestas ganadoras de Ecuador Quantificado 2026.</p>
+            <p class="stack">Python · pandas · matplotlib · pdfplumber</p>
+          </article>
+
+          <article class="entry project">
+            <div class="entry-head">
+              <h3><a href="https://github.com/jdsotomayorjimenez/proyecto-sd-taskflow">TaskFlow</a></h3>
+              <span class="date">2026</span>
+            </div>
+            <p>Gestor de tareas distribuido entre dos máquinas y dos clústeres de Kubernetes
+              independientes, comunicados por una red privada, con autenticación JWT y CRUD completo.</p>
+            <p class="stack">React · Node.js · MongoDB · Kubernetes · Tailscale</p>
+          </article>
+
+          <article class="entry project">
+            <div class="entry-head">
+              <h3><a href="https://github.com/juandifrost17/proyecto_bd2_enreach">Enreach</a></h3>
+              <span class="date">2026</span>
+            </div>
+            <p>Plataforma de inteligencia de negocios para telecomunicaciones: procesos ETL, modelo
+              dimensional, API y dashboards para analizar facturación, cobranza y consumo.</p>
+            <p class="stack">PostgreSQL · Pentaho · Spring Boot · React</p>
+          </article>
+
+          <article class="entry project">
+            <div class="entry-head">
+              <h3><a href="https://github.com/ueesaalg/aalg_act2_2p_ord1_26_grupo3">Propagación de malware en grafos</a></h3>
+              <span class="date">2026</span>
+            </div>
+            <p>Adapté Dijkstra y Bellman-Ford para maximizar el producto de probabilidades sobre un
+              grafo dirigido de 50 nodos, y comparé ambos en tiempo, memoria y estabilidad sobre
+              800 mediciones.</p>
+            <p class="stack">Python · NetworkX · Matplotlib · Tkinter</p>
+          </article>
+
+          <article class="entry project">
+            <div class="entry-head">
+              <h3><a href="https://github.com/jdsotomayorjimenez/proyecto-ldp-huellitas">Huellitas</a></h3>
+              <span class="date">2026</span>
+            </div>
+            <p>Plataforma web de adopción de mascotas: catálogo, solicitudes, evaluación
+              administrativa, gestión de citas y formalización del acta de adopción.</p>
+            <p class="stack">PHP · Laravel · MariaDB · Blade · Eloquent</p>
+          </article>
+        </section>
+
+      </div>
+
+      <aside class="side-column">
+
+        <!-- PENDIENTE (datos.md §1 y §7): bloque completo de datos personales.
+             Es el apartado que se espera en una hoja de vida en Ecuador.
+        <section aria-labelledby="datos">
+          <h2 id="datos">Datos personales</h2>
+          <dl class="data-list">
+            <dt>Fecha de nacimiento</dt><dd>1 de enero de 2000</dd>
+            <dt>Nacionalidad</dt><dd>Ecuatoriana</dd>
+            <dt>Residencia</dt><dd>Guayaquil, Ecuador</dd>
+            <dt>Disponibilidad</dt><dd>Medio tiempo · pasantías</dd>
+          </dl>
+        </section>
+        -->
+
+        <section aria-labelledby="habilidades">
+          <h2 id="habilidades">Habilidades</h2>
+          <div class="skill-block">
+            <h3>Lenguajes</h3>
+            <p>Java · Python · SQL · PHP · JavaScript · C#</p>
+          </div>
+          <div class="skill-block">
+            <h3>Desarrollo</h3>
+            <p>Spring Boot · Laravel · Node.js · React · JavaFX · Unity</p>
+          </div>
+          <div class="skill-block">
+            <h3>Datos</h3>
+            <p>PostgreSQL · MariaDB · MongoDB · ETL · Pentaho · NetworkX</p>
+          </div>
+          <div class="skill-block">
+            <h3>Sistemas</h3>
+            <p>Linux · Git · GitHub · Docker · Kubernetes · Tailscale</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="certificaciones">
+          <h2 id="certificaciones">Certificaciones</h2>
+          <ul class="plain">
+            <li><strong>AWS Academy — Cloud Architecting</strong><span>Agosto 2026</span></li>
+            <li><strong>AWS Academy — Data Engineering</strong><span>Marzo 2026</span></li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="reconocimientos">
+          <h2 id="reconocimientos">Reconocimientos</h2>
+          <ul class="plain">
+            <li><strong>Ecuador Quantificado 2026</strong><span>Una de las ocho propuestas ganadoras</span></li>
+            <li><strong>Medalla Filantrópica del Guayas</strong><span>2024</span></li>
+            <li><strong>Mejor Bachiller, Ecomundo</strong><span>2024</span></li>
+            <li><strong>Abanderado del Pabellón Nacional</strong><span>Ecomundo, 2023</span></li>
+            <li><strong>SpaceHACK for Sustainability</strong><span>Ediciones 2025 y 2026</span></li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="idiomas">
+          <h2 id="idiomas">Idiomas</h2>
+          <ul class="plain">
+            <li><strong>Español</strong><span>Nativo</span></li>
+            <li><strong>Inglés</strong><span>B2</span></li>
+          </ul>
+        </section>
+
+      </aside>
+    </div>
+  </main>
+</body>
+
+</html>
