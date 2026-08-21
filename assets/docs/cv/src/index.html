@@ -13,25 +13,26 @@
   <main class="resume">
     <header class="resume-header">
       <h1>Juan Diego Sotomayor Jiménez</h1>
-      <p class="headline">Estudiante de Ingeniería en Ciencias de la Computación</p>
+      <p class="headline">Backend, datos e infraestructura</p>
       <address class="contact-line">
-        <!-- PENDIENTE (datos.md §2): descomentar al tener el teléfono
-        <a href="tel:+593999999999">+593 99 999 9999</a>
-        <span aria-hidden="true">•</span>
-        -->
+        <!-- CV-PRIVADO:telefono -->
         <a href="mailto:jdsotomayorjimenez@icloud.com">jdsotomayorjimenez@icloud.com</a>
+        <span aria-hidden="true">•</span>
+        <span>Samborondón, Ecuador</span><!-- CV-PRIVADO:direccion -->
         <span aria-hidden="true">•</span>
         <a href="https://github.com/jdsotomayorjimenez">github.com/jdsotomayorjimenez</a>
         <span aria-hidden="true">•</span>
         <a href="https://jdsotomayorjimenez.github.io/">jdsotomayorjimenez.github.io</a>
-        <!-- PENDIENTE (datos.md §1 y §2): ciudad y LinkedIn
-        <span aria-hidden="true">•</span>
-        <span>Guayaquil, Ecuador</span>
-        <span aria-hidden="true">•</span>
-        <a href="https://www.linkedin.com/in/usuario">linkedin.com/in/usuario</a>
-        -->
       </address>
     </header>
+
+    <section aria-labelledby="profile-title">
+      <h2 id="profile-title">Perfil</h2>
+      <p class="lead">Estudiante de Ingeniería en Ciencias de la Computación, 6.º de 8 semestres, con GPA
+        94.67/100. Trabajo en backend, modelos de datos e infraestructura: un data warehouse con procesos ETL
+        y un clúster de cinco nodos con Kafka, Spark y MongoDB replicado, hoy en piloto en mi universidad.
+        Busco prácticas preprofesionales en desarrollo backend y datos.</p>
+    </section>
 
     <section aria-labelledby="education-title">
       <h2 id="education-title">Educación</h2>
@@ -44,8 +45,8 @@
           <p class="entry-date">2024 – abril 2028</p>
         </div>
         <ul>
-          <li>GPA: 94.95/100.</li>
-          <li>Finalización académica prevista para diciembre de 2027; titulación prevista para abril de 2028.</li>
+          <li>GPA 94.67/100. Sexto de ocho semestres.</li>
+          <li>Finalización académica en diciembre de 2027; titulación en abril de 2028.</li>
         </ul>
       </article>
     </section>
@@ -55,13 +56,18 @@
       <article class="entry">
         <div class="entry-heading">
           <div>
-            <h3>Apoyo técnico en infraestructura universitaria</h3>
-            <p class="entry-subtitle">Mantenimiento de equipos y preparación de computadoras</p>
+            <h3>Clúster de procesamiento distribuido e IA — UEES</h3>
+            <p class="entry-subtitle">Proyecto en equipo · Infraestructura, pipeline de datos y despliegue</p>
           </div>
-          <p class="entry-date">UEES</p>
+          <p class="entry-date">2026</p>
         </div>
         <ul>
-          <li>Participé en el mantenimiento y acondicionamiento de equipos destinados a la arquitectura de un clúster universitario.</li>
+          <li>Clúster de 5 nodos sobre hardware reutilizado (Ubuntu Server, Docker) con direccionamiento
+            fijo, acceso remoto por Tailscale y monitoreo de las 5 máquinas en Prometheus y Grafana.</li>
+          <li>Pipeline de datos Kafka → Spark → MongoDB con dos brokers y un replica set de tres nodos: más
+            de 390 estudiantes y 6 periodos académicos migrados a la base institucional.</li>
+          <li>Modelo Qwen2.5 servido en local con Ollama sobre GPU, con instancia de respaldo y conmutación
+            automática, detrás de una API que restringe a cada consejero a sus estudiantes asignados.</li>
         </ul>
       </article>
     </section>
@@ -78,33 +84,38 @@
           <p class="entry-date">2026</p>
         </div>
         <ul>
-          <li>Automaticé la extracción, validación y visualización de datos de la ENEMDU 2025 para analizar informalidad y empleo no remunerado por provincia; fue una de las ocho propuestas ganadoras de Ecuador Quantificado 2026.</li>
+          <li>Automaticé en un pipeline reproducible la extracción, validación y visualización de los
+            microdatos de la ENEMDU 2025 del INEC para medir informalidad y empleo no remunerado por
+            provincia. Una de las ocho propuestas ganadoras de Ecuador Quantificado 2026.</li>
         </ul>
       </article>
 
       <article class="project">
         <div class="entry-heading">
           <h3>
-            <a href="https://github.com/jdsotomayorjimenez/proyecto-iceframe-db-reportes">IceFrame</a>
-            <span class="tech">| PostgreSQL, Docker, Node.js, Express, Tailscale</span>
-          </h3>
-          <p class="entry-date">2026</p>
-        </div>
-        <ul>
-          <li>Desarrollé un inventario distribuido con PostgreSQL en Docker, persistencia de datos, red privada y un servicio independiente de reportes con exportación CSV/JSON.</li>
-        </ul>
-      </article>
-
-      <article class="project">
-        <div class="entry-heading">
-          <h3>
-            <a href="https://github.com/juandifrost17/proyecto_bd2_enreach">Enreach</a>
+            <a href="https://github.com/juandifrost17/proyecto_bd2_enreach">Enreach — data warehouse y BI</a>
             <span class="tech">| PostgreSQL, Pentaho, Spring Boot, React</span>
           </h3>
           <p class="entry-date">2026</p>
         </div>
         <ul>
-          <li>Construí una plataforma BI para telecomunicaciones con procesos ETL, modelo dimensional, API y dashboards para analizar facturación, cobranza y consumo.</li>
+          <li>Construí un modelo dimensional de facturación, cobranza y consumo de una operadora de
+            telecomunicaciones, cargado con procesos ETL en Pentaho y expuesto con una API en Spring Boot y
+            dashboards en React.</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <div class="entry-heading">
+          <h3>
+            <a href="https://github.com/jdsotomayorjimenez/proyecto-sd-taskflow">TaskFlow</a>
+            <span class="tech">| React, Node.js, MongoDB, Kubernetes, Tailscale</span>
+          </h3>
+          <p class="entry-date">2026</p>
+        </div>
+        <ul>
+          <li>Desplegué un gestor de tareas sobre dos clústeres de Kubernetes independientes en máquinas
+            distintas, unidos por una red privada Tailscale, con autenticación JWT y CRUD completo.</li>
         </ul>
       </article>
 
@@ -117,31 +128,24 @@
           <p class="entry-date">2026</p>
         </div>
         <ul>
-          <li>Desarrollé una plataforma web de adopción de mascotas con catálogo, solicitudes, evaluación administrativa, gestión de citas y formalización del acta de adopción.</li>
+          <li>Desarrollé una plataforma web de adopción de mascotas con control de acceso por rol: catálogo,
+            solicitudes, evaluación administrativa, agenda de citas y formalización del acta de adopción.</li>
         </ul>
       </article>
 
-      <article class="project">
-        <div class="entry-heading">
-          <h3>
-            <a href="https://github.com/ueesaalg/aalg_act2_2p_ord1_26_grupo3">Propagación de malware en grafos</a>
-            <span class="tech">| Python, NetworkX, Matplotlib, Tkinter</span>
-          </h3>
-          <p class="entry-date">2026</p>
-        </div>
-        <ul>
-          <li>Adapté Dijkstra y Bellman-Ford para maximizar el producto de probabilidades sobre un grafo dirigido de 50 nodos y comparé ambos algoritmos en tiempo, memoria y estabilidad sobre 800 mediciones.</li>
-        </ul>
-      </article>
+      <p class="more"><strong>También:</strong>
+        <a href="https://github.com/ueesaalg/aalg_act2_2p_ord1_26_grupo3">Propagación de malware en grafos</a>,
+        Dijkstra y Bellman-Ford comparados sobre 800 mediciones (Python, NetworkX) ·
+        <a href="https://github.com/jdsotomayorjimenez/proyecto-iceframe-db-reportes">IceFrame</a>,
+        inventario distribuido con PostgreSQL en Docker y servicio de reportes (Node.js, Express).</p>
     </section>
 
     <section aria-labelledby="recognition-title">
-      <h2 id="recognition-title">Reconocimientos y formación adicional</h2>
+      <h2 id="recognition-title">Certificaciones y reconocimientos</h2>
       <div class="compact-list">
-        <p><strong>Ecuador Quantificado:</strong> una de las ocho propuestas ganadoras (2026).</p>
-        <p><strong>AWS Academy — Data Engineering:</strong> formación completada (marzo 2026).</p>
-        <p><strong>AWS Academy — Cloud Architecting:</strong> formación completada (agosto 2026).</p>
-        <p><strong>Medalla Filantrópica del Guayas</strong> (2024) · <strong>Mejor Bachiller, Ecomundo</strong> (2024) · <strong>Abanderado del Pabellón Nacional, Ecomundo</strong> (2023).</p>
+        <p><strong>AWS Academy — Cloud Architecting</strong> (agosto 2026) · <strong>AWS Academy — Data Engineering</strong> (marzo 2026).</p>
+        <p><strong>Ecuador Quantificado 2026:</strong> una de las ocho propuestas ganadoras del concurso de análisis de datos de El Quantificador.</p>
+        <p><strong>Medalla Filantrópica del Guayas</strong> (2024) · <strong>Mejor Bachiller y Abanderado del Pabellón Nacional, Ecomundo</strong> (2023 y 2024).</p>
         <p><strong>SpaceHACK for Sustainability:</strong> participante en las ediciones 2025 y 2026.</p>
       </div>
     </section>
@@ -149,9 +153,10 @@
     <section aria-labelledby="skills-title">
       <h2 id="skills-title">Habilidades técnicas e idiomas</h2>
       <div class="compact-list skills-list">
-        <p><strong>Lenguajes:</strong> Java, Python, SQL, PHP, JavaScript, C#.</p>
-        <p><strong>Frameworks y desarrollo:</strong> Spring Boot, Laravel, Node.js, React, JavaFX, Unity.</p>
-        <p><strong>Datos y herramientas:</strong> PostgreSQL, MariaDB, MongoDB, ETL, Pentaho, NetworkX, Git, GitHub, Docker, Kubernetes, Linux, Tailscale.</p>
+        <p><strong>Lenguajes:</strong> Python, Java, SQL, JavaScript, PHP.</p>
+        <p><strong>Backend y web:</strong> Spring Boot, Laravel, Node.js, Express, React, APIs REST.</p>
+        <p><strong>Datos:</strong> PostgreSQL, MongoDB, MariaDB, modelado dimensional, ETL con Pentaho, Kafka, Spark.</p>
+        <p><strong>Infraestructura:</strong> Linux, Git, GitHub, Docker, Kubernetes, AWS, Tailscale, Prometheus, Grafana.</p>
         <p><strong>Idiomas:</strong> Español nativo · Inglés B2.</p>
       </div>
     </section>

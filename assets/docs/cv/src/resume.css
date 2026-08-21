@@ -1,6 +1,6 @@
 @page {
   size: A4;
-  margin: 11mm 13mm;
+  margin: 10mm 13mm;
 }
 
 :root {
@@ -19,8 +19,8 @@ html {
   color: var(--text);
   background: #fff;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 10.2pt;
-  line-height: 1.27;
+  font-size: 10pt;
+  line-height: 1.21;
 }
 
 body {
@@ -78,11 +78,11 @@ a {
 }
 
 section {
-  margin-top: 3.3mm;
+  margin-top: 2.3mm;
 }
 
 h2 {
-  margin-bottom: 1.8mm;
+  margin-bottom: 1.4mm;
   padding-bottom: .7mm;
   color: var(--accent);
   border-bottom: .75pt solid var(--line);
@@ -98,7 +98,11 @@ h2 {
 }
 
 .project + .project {
-  margin-top: 1.7mm;
+  margin-top: 1.4mm;
+}
+
+.more {
+  margin: 1.6mm 0 0;
 }
 
 .entry-heading {
@@ -149,8 +153,12 @@ li {
   padding-left: .7mm;
 }
 
+.lead {
+  margin-bottom: 0;
+}
+
 .compact-list p {
-  margin-bottom: .75mm;
+  margin-bottom: .4mm;
 }
 
 .compact-list p:last-child {
@@ -169,7 +177,7 @@ li {
 
   .resume {
     min-height: 297mm;
-    padding: 11mm 13mm;
+    padding: 10mm 13mm;
     background: #fff;
     box-shadow: 0 12px 40px rgba(22, 38, 55, .18);
   }

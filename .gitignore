@@ -1,0 +1,8 @@
+# Nunca debe entrar aquí la versión del CV con datos personales.
+# Este repositorio es un sitio público de GitHub Pages: todo lo que se commitea
+# queda publicado y en el historial. Los datos personales viven en
+# ~/Documents/CV-privado/, junto con el script que los genera (build-privado.py).
+# Nada de eso vive en este repositorio.
+CV-privado/
+datos-personales.env
+*-con-datos.pdf
