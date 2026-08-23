@@ -144,7 +144,7 @@ a {
 .main-column {
   flex: 1 1 auto;
   min-width: 0;
-  padding: 5.5mm 6.5mm 5mm 12mm;
+  padding: 5mm 6.5mm 4mm 12mm;
 }
 
 .side-column {
@@ -155,7 +155,7 @@ a {
 }
 
 section + section {
-  margin-top: 3.4mm;
+  margin-top: 2.9mm;
 }
 
 h2 {
@@ -199,7 +199,7 @@ p {
 }
 
 .entry + .entry {
-  margin-top: 2.3mm;
+  margin-top: 2mm;
 }
 
 .entry-head {
@@ -220,6 +220,15 @@ p {
 .entry-note {
   margin: .8mm 0 0;
   color: var(--ink-soft);
+}
+
+.entry-note b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.entry-note.materias {
+  font-size: 8.7pt;
 }
 
 .entry-sub {
@@ -243,7 +252,7 @@ p {
 }
 
 .more {
-  margin-top: 2.3mm !important;
+  margin-top: 1.8mm !important;
   color: var(--ink-soft);
   font-size: 8.6pt;
 }

@@ -22,7 +22,7 @@ Ver «Currículum» en el [README del repositorio](../../../../README.md).
 | Campo | Valor |
 |---|---|
 | Nombre completo | Juan Diego Sotomayor Jiménez |
-| Titular profesional | Backend · Datos · Infraestructura |
+| Titular profesional | Estudiante de Ingeniería en Ciencias de la Computación |
 | Fecha de nacimiento | Solo versión privada — `CV-privado/datos-personales.env` |
 | Nacionalidad | Ecuatoriana |
 | Ciudad de residencia | Samborondón, Ecuador (versión pública) |
@@ -51,11 +51,16 @@ Ver «Currículum» en el [README del repositorio](../../../../README.md).
 
 ## 3. Perfil
 
-> Estudiante de Ingeniería en Ciencias de la Computación, 6.º de 8 semestres, GPA
+> Sexto de ocho semestres de Ingeniería en Ciencias de la Computación, GPA
 > 94.67/100. Construyo backend, modelos de datos e infraestructura: un data
 > warehouse con ETL y un clúster de cinco nodos con Kafka, Spark y MongoDB
-> replicado, hoy en piloto en mi universidad. Busco prácticas preprofesionales
-> donde llevar eso a un equipo real.
+> replicado, hoy en piloto en mi universidad con más de 390 estudiantes migrados.
+> Me oriento al backend de datos: pipelines, modelado y la infraestructura que los
+> sostiene.
+
+> La versión ATS lleva una frase más, con los lenguajes y las herramientas del día
+> a día, porque ahí el texto también se lee por palabras clave. El titular ya dice
+> la carrera, así que el perfil abre por el avance y no la repite.
 
 ## 4. Educación
 
@@ -63,9 +68,10 @@ Ver «Currículum» en el [README del repositorio](../../../../README.md).
 |---|---|
 | Institución | Universidad de Especialidades Espíritu Santo (UEES) |
 | Carrera | Ingeniería en Ciencias de la Computación |
-| Periodo | 2024 – abril 2028 |
+| Periodo | abril 2024 – abril 2028 |
 | Avance | 6.º de 8 semestres |
 | GPA | 94.67/100 |
+| Materias relevantes | Bases de Datos, Estructuras de Datos, Diseño de Software, Análisis de Algoritmos, Sistemas Distribuidos, Redes y Comunicaciones |
 | Notas | Finalización académica prevista para diciembre de 2027; titulación prevista para abril de 2028 |
 
 ## 5. Experiencia técnica — clúster UEES
@@ -110,7 +116,7 @@ Cuatro fichas completas y una línea de cierre, en este orden:
 
 | Campo | Valor |
 |---|---|
-| Disponibilidad | Lunes a viernes, 6 h diarias (hasta 8 si hace falta) |
+| Disponibilidad | Lunes a viernes, 6 h diarias |
 
 ---
 
@@ -162,6 +168,14 @@ identidad del portafolio y se actualiza en el mismo repositorio.
   externa que no exista.
 - Ecuador Quantificado se describe como una de ocho propuestas ganadoras, sin inventar
   una posición.
+- El perfil no pide prácticas preprofesionales. Quien lee un CV de estudiante ya sabe
+  a qué se postula, y la última línea rinde más describiendo hacia dónde va el trabajo
+  —backend de datos: pipelines, modelado e infraestructura— que repitiendo la petición.
+  Eso va en la carta de presentación o en el mensaje con el que se envía el CV.
+- Las materias relevantes se listan porque son las que sostienen las entradas de
+  experiencia y proyectos: bases de datos, estructuras de datos, diseño de software,
+  análisis de algoritmos, sistemas distribuidos, y redes y comunicaciones. No es el
+  pénsum completo, solo lo que un puesto de backend o datos va a buscar.
 
 ### El clúster es la entrada principal
 
